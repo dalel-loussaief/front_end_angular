@@ -1,0 +1,40 @@
+<div class="container">
+    <div>
+    <h2>Modifier un vetement:</h2>
+    </div>
+    <form >
+    <div  class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID vetement</label>
+    <input  readonly  type="text" [(ngModel)]="currentVetement.idvetement"
+    name="idvetement" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom vetement</label>
+    <input type="text"[(ngModel)]= "currentVetement.nomvetement"
+    name="nomvetement" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Prix vetement</label>
+    <input type="number" [(ngModel)]= "currentVetement.prixvetement"
+    name="prixvetement" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+    
+    <label >Date production</label>
+    <input type="date" [ngModel]="currentVetement.dateprod | date: 'yyyy-MM-dd'"
+    (ngModelChange)=" currentVetement.dateprod= $event" name="dateprod"
+     class="form-control">
+    </div>
+
+     <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >genre</label>
+        <select class="form-control form-control-lg" id="idG" name="idG"
+        [(ngModel)]="updatedgeId">
+        <option *ngFor="let ge of genre" [value]="ge.idG" > {{ge.nom}} </option>
+        </select>
+        </div> 
+    <div class="mt-2">
+    <button type="submit" (click)="updateVetement()" class="btn btn-success">Modifer</button>
+    </div>
+    </form>
+    </div>
